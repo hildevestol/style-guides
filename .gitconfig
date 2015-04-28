@@ -24,11 +24,18 @@
   ch=checkout
   p=pull
   l=log
-  # alias bf: List branches sorted by last commit and formated with [date], [author of last commit] and [branch name]
+  
+  # List branches sorted by last commit and formated with [date], [author of last commit] and [branch name]
   bf=for-each-ref --sort=-committerdate refs/heads/ --format='%(committerdate:short) %(authorname) %(refname:short)'
-  # alias cleanup: Deletes (safely) all branches that are already merged into the branch u are in (except develop and master)
+  
+  # Deletes (safely) all branches that are already merged into the branch u are in (except develop and master)
   cleanup=!git branch --merged | grep -v 'master' | grep -v 'develop' | grep -v '*' | xargs -n 1 git branch -d
-  review=!git status --porcelain | cut -c4- | grep '.rb' | xargs rubocop
+  
+  # Use rubocop to review the edited files according to the styleguides
+  # NB! If u don't have a .rubocop.yml in your user folder this will break. 
+  # Remove the --config ~/.rubocop.yml if u don't have the file present.
+  # TODO: Check if file exists
+  review=!git status --porcelain | cut -c4- | grep '.rb' | xargs rubocop --config ~/.rubocop.yml
   undo
 [user]
   name = INSERT YOUR NAME HERE
