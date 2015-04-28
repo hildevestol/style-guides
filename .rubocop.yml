@@ -1,0 +1,2 @@
+Metrics/LineLength:
+  Max: 150 #sometimes u need to break the 80chars rule..
