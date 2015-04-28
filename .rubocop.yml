@@ -1,2 +1,3 @@
+# Place in ~/.rubocop.yml to be used by my own .gitconfig review alias
 Metrics/LineLength:
   Max: 150 #sometimes u need to break the 80chars rule..
