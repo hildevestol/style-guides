@@ -1,0 +1,44 @@
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+[alias]
+  s=status
+  c=commit
+  d=diff
+  b=branch
+  m=merge
+  ch=checkout
+  p=pull
+  l=log
+  # alias bf: List branches sorted by last commit and formated with [date], [author of last commit] and [branch name]
+  bf=for-each-ref --sort=-committerdate refs/heads/ --format='%(committerdate:short) %(authorname) %(refname:short)'
+  # alias cleanup: Deletes (safely) all branches that are already merged into the branch u are in (except develop and master)
+  cleanup=!git branch --merged | grep -v 'master' | grep -v 'develop' | grep -v '*' | xargs -n 1 git branch -d
+  review=!git status --porcelain | cut -c4- | grep '.rb' | xargs rubocop
+  undo
+[user]
+  name = INSERT YOUR NAME HERE
+  email = INSERT YOUR EMAIL HERE
+[push]
+  default = current
+[core]
+	quotepath = false
+	editor = "nano"
+	excludesfile = ~.gitignore_global
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
