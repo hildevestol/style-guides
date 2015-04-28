@@ -32,10 +32,10 @@
   cleanup=!git branch --merged | grep -v 'master' | grep -v 'develop' | grep -v '*' | xargs -n 1 git branch -d
   
   # Use rubocop to review the edited files according to the styleguides
-  # NB! If u don't have a .rubocop.yml in your user folder this will break. 
-  # Remove the --config ~/.rubocop.yml if u don't have the file present.
-  # TODO: Check if file exists
-  review=!git status --porcelain | cut -c4- | grep '.rb' | xargs rubocop --config ~/.rubocop.yml
+  # If u have .rubocop.yaml file you can add --config ~/.rubocop.yml
+  # Example: !git status --porcelain | cut -c4- | grep '.rb' | xargs rubocop --config ~/.rubocop.yml
+  # Requires rubocop gem: https://github.com/bbatsov/rubocop
+  review=!git status --porcelain | cut -c4- | grep '.rb' | xargs rubocop
   undo
 [user]
   name = INSERT YOUR NAME HERE
