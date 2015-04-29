@@ -1,3 +1,13 @@
 # Place in ~/.rubocop.yml to be used by my own .gitconfig review alias
+
+# Disable "Missing top-level module documentation comment."
+Documentation:
+  Enabled: false
+
+# Disable "Use nested module/class definitions instead of compact style."
+ClassAndModuleChildren:
+  Enabled: false
+
+# Override linelength. Sometimes u need to break the 80chars rule..
 Metrics/LineLength:
-  Max: 150 #sometimes u need to break the 80chars rule..
+  Max: 150
