@@ -36,7 +36,10 @@
   # Example: !git status --porcelain | cut -c4- | grep '.rb' | xargs rubocop --config ~/.rubocop.yml
   # Requires rubocop gem: https://github.com/bbatsov/rubocop
   review=!git status --porcelain | cut -c4- | grep '.rb' | xargs rubocop
-  undo
+  
+  # Undo latest commit (this uses automaticaly --soft)
+  # If u want hard reset then just write: git undo --hard
+  undo=reset 'HEAD^'
 [user]
   name = INSERT YOUR NAME HERE
   email = INSERT YOUR EMAIL HERE
