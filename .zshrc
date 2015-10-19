@@ -92,6 +92,11 @@ alias r="rails"
 alias precompile="RAILS_ENV=production bundle exec rake assets:precompile"
 alias karma="PHANTOMJS_BIN=/Users/hilde/dev/rema-stempling/node_modules/phantomjs/lib/phantom/bin/phantomjs bundle exec rake karma:start"
 
+# Elasticsearch
+# Install with 'brew install elasticsearch`
+# 'brew info elasticsearch' gives some info
+alias startelastic="elasticsearch --config=/usr/local/opt/elasticsearch/config/elasticsearch.yml"
+
 # rebenv
 eval "$(rbenv init -)"
 # direnv
